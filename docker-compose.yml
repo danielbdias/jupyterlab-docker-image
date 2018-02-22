@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  jupyterlab:
+    build: .
+    command: "bash -c 'pip3 install -r /project/requirements.txt && jupyter lab --no-browser --ip=* --port=9000 --allow-root --notebook-dir=/project/notebooks --NotebookApp.token=\"\"'"
+    volumes:
+      - ./:/project
+    ports:
+      - 9000:9000
